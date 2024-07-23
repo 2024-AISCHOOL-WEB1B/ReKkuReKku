@@ -8,4 +8,3 @@ routes.get("/mainRouter",(req,res)=>{
     req.session.name = "kws";
     res.redirect("/")
 })
-module.exports=routes;
