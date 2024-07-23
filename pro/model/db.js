@@ -10,7 +10,7 @@ const conn = mysql.createConnection({
     datebase : "Insa5_JSB_hacksim_1"
 });
 
-// 연결 진행e
+// 연결 진행
 conn.connect();
 console.log("DB연결");
 
