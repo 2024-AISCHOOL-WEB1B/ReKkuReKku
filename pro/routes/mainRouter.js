@@ -1,18 +1,26 @@
 const express = require("express");
-const routes = express.Router();
+const app = express();
+const session = require('./session');
+const port = 4000;
+const cors = require("cors");
 
-routes.get("/",(req,res)=>{
-    res.render("main")
-})
+// CORS 설정
+app.use(cors({
+  origin: 'http://localhost:3000',
+}));
 
-// 사용자가 회원가입 요청할 때 ->> view에 있는 join페이지로 이동
-Router.get("/join",(req,res)=>{
-    res.render("join")
-})
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(session);
 
-// 사용자가 로그인 요청할 때
-router.get("/login",(req,res)=>{
-    res.render("login")
-})
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
-module.exports = routes;
+//  라우터 예시
+ const loginRouter = require('./routes/loginRouter');
+ app.use('/user/login', loginRouter);
+
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+});
