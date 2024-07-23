@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 // 회원가입 라우터 설정
  const joinRouter = require('./joinRouter'); 
- app.use('/user/join', joinRouter);
+ app.use('/user/join', joinRouter);   // /user/join 경로의 모든 요청은 joinRouter 라우터로 전달됨
 
 // 로그인 라우터 설정
  const loginRouter = require('./loginRouter');
